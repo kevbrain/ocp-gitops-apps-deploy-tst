@@ -16,6 +16,6 @@ data:
   app-request.memory: "250Mi"
   app-container.port: "8080"
   app-request.cpu: "200m"
-  ocp.replicas: "2"
+  ocp.replicas: "1"
   app-version: "v6.0"
 ---
