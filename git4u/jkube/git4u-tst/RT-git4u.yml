@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  namespace: git4u-tst
+  name: git4u-route
+  labels:
+    app: git4u
+spec:
+  to:
+    kind: Service
+    name: git4u-service
+    weight: 256
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
+---

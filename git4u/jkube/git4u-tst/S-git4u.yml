@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: git4u-tst
+  name: git4u-secret-0
+  labels:
+    app: git4u    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
