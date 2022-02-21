@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  namespace: first-ms-tst
+  name: first-ms-route
+  labels:
+    app: first-ms
+spec:
+  to:
+    kind: Service
+    name: first-ms-service
+    weight: 256
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
+---
