@@ -1,0 +1,115 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: first-ms-tst
+  annotations:
+    its4u.placeholders/auto: "true"
+    reloader.stakater.com/auto: "true"
+  name: first-ms
+  labels:
+    app: first-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: first-ms
+  template:
+    metadata:
+      name: first-ms
+      labels:
+        app: first-ms
+    spec:
+      volumes:
+        - name: emptydirlogs
+          emptyDir: {}
+      containers:
+        - name: microservice-pod 
+          resources:
+            requests:
+              memory: 250Mi
+              cpu : 200m
+            limits:
+              memory: 750Mi
+              cpu : 500m
+          readinessProbe:
+            httpGet:
+              path: actuator/health
+              port: 8080
+              scheme: HTTP
+          env:
+            - name: app-limit.memory
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: app-limit.memory
+            - name: ocp-cluster.registry
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: ocp-cluster.registry
+            - name: app-limit.cpu
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: app-limit.cpu
+            - name: ocp.environment
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: ocp.environment
+            - name: ocp-namespace
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: ocp-namespace
+            - name: cluster-suffix
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: cluster-suffix
+            - name: app-actuator.port
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: app-actuator.port
+            - name: app-request.memory
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: app-request.memory
+            - name: app-container.port
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: app-container.port
+            - name: app-request.cpu
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: app-request.cpu
+            - name: ocp.replicas
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: ocp.replicas
+            - name: app-version
+              valueFrom:
+                configMapKeyRef:
+                  name: first-ms-cm-0
+                  key: app-version
+            - name: actuator.password
+              valueFrom:
+                secretKeyRef:
+                  name: first-ms-secret-0
+                  key: actuator.password
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: http
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: emptydirlogs
+              mountPath: /Logs
+          image: >-
+            image-registry.openshift-image-registry.svc.cluster.local:5000/first-ms-tst/first-ms:0.0.1-SNAPSHOT
+      restartPolicy: Always
