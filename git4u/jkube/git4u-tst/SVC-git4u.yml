@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  namespace: git4u-tst
+  namespace: {{ocp-namespace}}
   name: git4u-service
   labels:
     app: git4u

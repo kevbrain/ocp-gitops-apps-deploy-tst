@@ -1,7 +1,7 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  namespace: git4u-tst
+  namespace: {{ocp-namespace}}
   name: git4u-route
   labels:
     app: git4u
