@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: first-ms-tst
+  name: first-ms-secret-0
+  labels:
+    app: first-ms    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
