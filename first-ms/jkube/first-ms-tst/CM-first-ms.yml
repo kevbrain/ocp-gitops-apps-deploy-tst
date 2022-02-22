@@ -1,0 +1,21 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  namespace: first-ms-tst
+  name: first-ms-cm-0
+  labels:
+    app: first-ms
+data: 
+  app-limit.memory: "750Mi"
+  ocp-cluster.registry: "image-registry.openshift-image-registry.svc.cluster.local:5000"
+  app-limit.cpu: "500m"
+  ocp.environment: "tst"
+  ocp-namespace: "first-ms-tst"
+  cluster-suffix: "apps.ocp-lab.its4u.eu"
+  app-actuator.port: "8080"
+  app-request.memory: "250Mi"
+  app-container.port: "8080"
+  app-request.cpu: "200m"
+  ocp.replicas: "1"
+  app-version: "0.0.1-SNAPSHOT"
+---
