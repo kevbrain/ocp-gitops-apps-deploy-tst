@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  namespace: first-ms-tst
+  namespace: {{ocp-namespace}}
   name: first-ms-service
   labels:
     app: first-ms
