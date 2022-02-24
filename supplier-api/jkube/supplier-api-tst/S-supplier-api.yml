@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: supplier-api-tst
+  name: supplier-api-secret-0
+  labels:
+    app: supplier-api    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
