@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: erp-api-tst
+  name: erp-api-secret-0
+  labels:
+    app: erp-api    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
