@@ -1,0 +1,21 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  namespace: ctie-tst
+  name: ctie-cm-0
+  labels:
+    app: ctie
+data: 
+  app-actuator.port: "8080"
+  app-container.port: "8080"
+  app-limit.cpu: "500m"
+  app-limit.memory: "800Mi"
+  app-request.cpu: "200m"
+  app-request.memory: "250Mi"
+  app-version: "0.0.1-SNAPSHOT"
+  cluster-suffix: "apps.ocp-lab.its4u.eu"
+  ocp.environment: "tst"
+  ocp.replicas: "1"
+  ocp-cluster.registry: "image-registry.openshift-image-registry.svc.cluster.local:5000"
+  ocp-namespace: "ctie-tst"
+---
