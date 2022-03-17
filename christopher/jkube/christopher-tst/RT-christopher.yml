@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  namespace: christopher-tst
+  name: christopher-route
+  labels:
+    app: christopher
+spec:
+  to:
+    kind: Service
+    name: christopher-service
+    weight: 256
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
+---

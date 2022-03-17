@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: christopher-tst
+  name: christopher-secret-0
+  labels:
+    app: christopher    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
