@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: dms-tst
+  name: dms-service
+  labels:
+    app: dms
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: dms

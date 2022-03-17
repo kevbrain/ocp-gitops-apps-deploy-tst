@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: dms-tst
+  name: dms-secret-0
+  labels:
+    app: dms    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
