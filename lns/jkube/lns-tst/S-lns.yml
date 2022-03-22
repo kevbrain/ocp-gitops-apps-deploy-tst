@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: lns-tst
+  name: lns-secret-0
+  labels:
+    app: lns    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
