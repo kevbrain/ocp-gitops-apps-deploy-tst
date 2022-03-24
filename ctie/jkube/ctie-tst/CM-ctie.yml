@@ -15,7 +15,7 @@ data:
   app-version: "0.0.1-SNAPSHOT"
   cluster-suffix: "apps.ocp-lab.its4u.eu"
   ocp.environment: "tst"
-  ocp.replicas: "1"
+  ocp.replicas: "2"
   ocp-cluster.registry: "image-registry.openshift-image-registry.svc.cluster.local:5000"
   ocp-namespace: "ctie-tst"
 ---
