@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: ctie-demo-tst
+  name: ctie-demo-secret-0
+  labels:
+    app: ctie-demo    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
