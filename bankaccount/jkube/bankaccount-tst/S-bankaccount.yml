@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: bankaccount-tst
+  name: bankaccount-secret-0
+  labels:
+    app: bankaccount    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
