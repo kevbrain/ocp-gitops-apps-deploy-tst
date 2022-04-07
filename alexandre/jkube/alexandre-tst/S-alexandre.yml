@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: alexandre-tst
+  name: alexandre-secret-0
+  labels:
+    app: alexandre    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
