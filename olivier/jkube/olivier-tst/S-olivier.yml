@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  namespace: olivier-tst
+  name: olivier-secret-0
+  labels:
+    app: olivier    
+stringData:  
+  actuator.password: password
+type: Opaque
+---
+ 
