@@ -15,7 +15,7 @@ data:
   app-actuator.port: "8080"
   app-request.memory: "250Mi"
   app-container.port: "8080"
-  app-request.cpu: "200m"
+  app-request.cpu: "300m"
   ocp.replicas: "1"
   app-version: "0.0.1-SNAPSHOT"
 ---
